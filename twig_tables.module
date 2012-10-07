@@ -1,0 +1,135 @@
+<?php
+/**
+ * @file
+ * Generates tables for developing the Twig table template.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function twig_tables_menu() {
+  $items['twig-tables'] = array(
+    'title' => 'Twig tables',
+    'page callback' => 'twig_tables_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function twig_tables_page() {
+  $table1 = array(
+    'rows' => array(
+      array(
+        array(
+          'data' => t('Foo'),
+          'header' => TRUE,
+        ),
+        t('Bar'),
+        t('Baz'),
+      ),
+      array(
+        array(
+          'data' => t('Foo'),
+          'header' => TRUE,
+        ),
+        t('Bar'),
+        t('Baz'),
+      ),
+      array(
+        array(
+          'data' => t('Foo'),
+          'header' => TRUE,
+        ),
+        t('Bar'),
+        t('Baz'),
+      ),
+    ),
+  );
+
+  $build['table1'] = array(
+    '#theme' => 'table',
+    '#rows' => $table1['rows'],
+    '#empty' => t('No rows defined.'),
+    '#attributes' => array(
+      'id' => 'twig-table1',
+    ),
+  );
+
+  $table2 = array(
+    'header' => array(
+      t('Foo'),
+      t('Bar'),
+      array(
+        'data' => array(
+          '#theme' => 'html_tag',
+          '#tag' => 'span',
+          '#value' => t('Classes'),
+        ),
+        'class' => array(
+          'baz-class',
+          'baz-class',
+        ),
+      ),
+    ),
+    'rows' => array(
+      array(t('Foo'), t('Bar'), t('Baz')),
+      array(t('Foo'), t('Bar'), t('Baz')),
+      array(t('Foo'), t('Bar'), t('Baz')),
+      array(
+        array(
+          'data' => array(
+            '#theme' => 'html_tag',
+            '#tag' => 'span',
+            '#value' => t('Classes and ID'),
+          ),
+          'class' => array(
+            'foo-class',
+          ),
+          'id' => 'foo-id',
+        ),
+        t('Bar'),
+        t('Baz'),
+      ),
+    ),
+  );
+
+  $build['table2'] = array(
+    '#theme' => 'table',
+    '#header' => $table2['header'],
+    '#rows' => $table2['rows'],
+    '#empty' => t('No rows defined.'),
+    '#attributes' => array(
+      'id' => 'twig-table2',
+    ),
+  );
+
+  $table3 = array(
+    'header' => array(
+      t('Foo'),
+      array('data' => t('Operations'), 'colspan' => '2'),
+    ),
+    'rows' => array(
+      array(
+        t('Bar'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+    ),
+  );
+
+  $build['table3'] = array(
+    '#theme' => 'table',
+    '#header' => $table3['header'],
+    '#rows' => $table3['rows'],
+  );
+
+  return $build;
+}
+
