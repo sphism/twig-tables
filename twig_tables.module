@@ -121,6 +121,96 @@ function twig_tables_page() {
         l(t('edit'), 'edit'),
         l(t('reset'), 'reset'),
       ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
+      array(
+        t('Baz'),
+        l(t('edit'), 'edit'),
+        l(t('reset'), 'reset'),
+      ),
     ),
   );
 
@@ -128,6 +218,7 @@ function twig_tables_page() {
     '#theme' => 'table',
     '#header' => $table3['header'],
     '#rows' => $table3['rows'],
+    '#sticky' => TRUE,
   );
 
   return $build;
