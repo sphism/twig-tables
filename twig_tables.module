@@ -221,6 +221,30 @@ function twig_tables_page() {
     '#sticky' => TRUE,
   );
 
+  $table4 = array(
+    'header' => array(
+      array('data' => t('Numbers'), 'field' => 't.numbers'),
+      array('data' => t('Letters'), 'field' => 't.alpha'),
+      array('data' => t('Mixture'), 'field' => 't.random'),
+    ),
+  );
+
+  $query = db_select('twig_tables_sorting', 't')
+    ->extend('Drupal\Core\Database\Query\TableSortExtender');
+  $query->fields('t');
+  $result = $query->orderByHeader($table4['header'])->execute();
+
+  $table4['rows'] = array();
+  foreach ($result as $row) {
+    $table4['rows'][] = array('data' => (array) $row);
+  }
+
+  $build['table4'] = array(
+    '#theme' => 'table',
+    '#header' => $table4['header'],
+    '#rows' => $table4['rows'],
+  );
+
   return $build;
 }
 
