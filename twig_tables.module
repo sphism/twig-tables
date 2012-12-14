@@ -245,6 +245,111 @@ function twig_tables_page() {
     '#rows' => $table4['rows'],
   );
 
+  // add colgroup examples
+  $build += twig_tables_colgroup_tests();
   return $build;
+}
+
+
+function twig_tables_colgroup_tests() {
+  // Default D7 example in docs 
+  $colgroups1 = array(
+    // COLGROUP with one COL element.
+    array(
+      array(
+        'class' => array('funky'), // Attribute for the COL element.
+      ),
+    ),
+    // Colgroup with attributes and inner COL elements.
+    array(
+      'data' => array(
+        array(
+          'class' => array('funky'), // Attribute for the COL element.
+        ),
+      ),
+      'class' => array('jazzy'), // Attribute for the COLGROUP element.
+    ),
+  );
+
+
+  $colgroups2 = array(
+    array(
+      array('class' => array('cg1c1')),
+    ),
+    array(
+      'class' => array('cg2'),
+      'data' => array(
+        array('class' => array('cg2c1')),
+        array('class' => array('cg2c2')),
+      ), 
+    ),
+    array(
+      'class' => array('cg3'),
+      'data' => array(
+        array('class' => array('cg3c1')),
+        array('class' => array('cg3c2')),
+        array('class' => array('cg3c3')),
+        array('class' => array('cg3c4')),
+      ),
+    ),
+  );
+
+  $colgroups3 = array(
+    array(
+        array('class' => array('cg2c1')),
+        array(),
+    ),
+    array(
+      'class' => array('cg2'),
+      'data' => array(
+        array('class' => array('cg2c1')),
+        array('class' => array('cg2c2')),
+      ), 
+    ),
+    array(
+      'class' => array('cg3'),
+    ),
+  );
+
+  $base_table = array(
+    '#theme' => 'table',
+    '#caption' => 'Colgroup Examples',
+    '#colgroups' => array(),
+    '#header' => array(
+      t('Foo'),
+      array('data' => t('Operations'), 'colspan' => '2'),
+      'test'
+    ),
+    '#empty' => t('No rows defined.'),
+    '#attributes' => array(
+      'id' => 'twig-table2',
+    ),
+    '#rows' => array(
+      array(
+        t('Bar'),
+        l(t('ipsum'), 'lorem'),
+        l(t('lorem'), 'ipsum'),
+        'Biz'
+      ),
+      array(
+        t('Baz'),
+        l(t('ipsum'), 'lorem'),
+        l(t('lorem'), 'ipsum'),
+        'Buzz'
+      ),
+    ),
+  );
+
+  $tables = array();
+  $tables['colgroup1'] = $base_table;
+  $tables['colgroup2'] = $base_table;
+  $tables['colgroup3'] = $base_table;
+  $tables['colgroup1']['#colgroups'] = $colgroups1;
+  $tables['colgroup2']['#colgroups'] = $colgroups2;
+  $tables['colgroup3']['#colgroups'] = $colgroups3;
+
+
+  return $tables;
+
 }
 
