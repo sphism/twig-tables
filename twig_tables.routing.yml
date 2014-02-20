@@ -1,0 +1,6 @@
+twig_tables_list:
+  pattern: '/twig-tables'
+  defaults:
+    _content: '\Drupal\twig_tables\Controller\TwigTablesController::listTwigTables'
+  requirements:
+    _permission: 'view content'
