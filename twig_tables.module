@@ -10,15 +10,12 @@
 function twig_tables_menu() {
   $items['twig-tables'] = array(
     'title' => 'Twig tables',
-    'page callback' => 'twig_tables_page',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
+    'route_name' => 'twig_tables_list',
   );
-
   return $items;
 }
 
-function twig_tables_page() {
+/*function twig_tables_page() {
   $table1 = array(
     'rows' => array(
       array(
@@ -252,7 +249,7 @@ function twig_tables_page() {
 
 
 function twig_tables_colgroup_tests() {
-  // Default D7 example in docs 
+  // Default D7 example in docs
   $colgroups1 = array(
     // COLGROUP with one COL element.
     array(
@@ -281,7 +278,7 @@ function twig_tables_colgroup_tests() {
       'data' => array(
         array('class' => array('cg2c1')),
         array('class' => array('cg2c2')),
-      ), 
+      ),
     ),
     array(
       'class' => array('cg3'),
@@ -304,7 +301,7 @@ function twig_tables_colgroup_tests() {
       'data' => array(
         array('class' => array('cg2c1')),
         array('class' => array('cg2c2')),
-      ), 
+      ),
     ),
     array(
       'class' => array('cg3'),
@@ -352,4 +349,4 @@ function twig_tables_colgroup_tests() {
   return $tables;
 
 }
-
+*/
